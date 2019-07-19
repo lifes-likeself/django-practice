@@ -15,9 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+
+if settings.DEBUG:
+    import debug_toolbar
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),  # <<???
     path('blog/', include('blog.urls')),
-    path('dojo/', include('dojo.urls')),
+    path('dojo/', include('dojo.urls'))
+    path('__debug__/', include(debug_toolbar.urls)), #9강.. 어떻게 해야함. 
 ]
