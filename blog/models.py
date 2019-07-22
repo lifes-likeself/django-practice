@@ -16,8 +16,6 @@ class Post(models.Model):
         ('w', 'Withdrawn'),
     )
 
-
-
     author = models.CharField(max_length=30)
     title = models.CharField(max_length=100) # 길이  o
     content = models.TextField() # 길이 x
@@ -28,10 +26,19 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     upgraded_at = models.DateTimeField(auto_now=True)
 
-    class Meta:
-        ordering = ['id']
-
 
     def __str__(self):
         return self.title
+
+
+class Comment(models.Model):
+        post = models.ForeignKey(Post, on_delete=models.CASCADE,)
+        author = models.CharField(max_length=20)
+        message = models.TextField()
+        created_at = models.DateTimeField(auto_now_add=True)
+        upgraded_at = models.DateTimeField(auto_now=True)
+
+class Meta:
+            ordering = ['id']
+
 

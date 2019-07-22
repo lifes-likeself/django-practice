@@ -15,13 +15,16 @@
 </form>
 
 <ul>
-<% for post in 'post_list'%>
+{% for post in 'post_list' %}
 <li>
-    {{post.title}}
-    <small> by {{post.author}}</small>
-    <small> at {{post.updated_at}}</small>  # 왜안나와....
+    {{post_list.id}}
+    <a href="/blog/{{post.id}}">
+    {{post_list.title}}
+        </a>
+    <small> by {{post_list.author}}</small>
+    <small> at {{post_list.updated_at}}</small>   <!--   왜안나와.... -->
 </li>
-<% endfor %>
+{% endfor %}
     </ul>
 
 
