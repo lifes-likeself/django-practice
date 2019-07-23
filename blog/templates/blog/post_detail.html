@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+
+{% extends 'blog/layout.html' %}
+{% block content %}
+
 <h1>{{post.title}}</h1>
 {{post.content | linebreaks }}
 
@@ -12,7 +9,14 @@
 
 <h3>comments</h3>
 
+<ul>
 {% for comment in post.comment_set.all %}
-~~~
-</body>
-</html>
+    <li>
+{{comment.author}}
+    <small> {{comment.message}}</small>
+    <small> {{comment.upgraded_at}}</small>
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

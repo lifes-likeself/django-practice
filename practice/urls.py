@@ -24,6 +24,7 @@ if settings.DEBUG:
 
 urlpatterns = [
     path('admin/', admin.site.urls),  # <<???
+    path('account/', include('accounts.urls')),
     path('blog/', include('blog.urls')),
     path('dojo/', include('dojo.urls')),
     re_path('__debug__/', include(debug_toolbar.urls)), #9강.. 어떻게 해야함.

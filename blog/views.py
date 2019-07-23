@@ -19,7 +19,6 @@ def post_list(request):
         'q': q
     })
 
-# 이해 나중에 잘 해보자...
 
 def post_detail(request, id):
 

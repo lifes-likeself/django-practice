@@ -37,10 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'shop',
     'blog',
     'dojo',
     'django_extensions',
-    'debug_toolbar'
+    'accounts',
+    'debug_toolbar',
 ]
 
 MIDDLEWARE = [
@@ -59,7 +61,9 @@ ROOT_URLCONF = 'practice.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, '프로젝트명', 'templates'),
+                  ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
